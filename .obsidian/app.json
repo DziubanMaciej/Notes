@@ -1,0 +1,12 @@
+{
+  "readableLineLength": false,
+  "showFrontmatter": false,
+  "showLineNumber": true,
+  "useTab": false,
+  "promptDelete": false,
+  "showUnsupportedFiles": true,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview",
+  "lineWrap": true,
+  "livePreview": false
+}

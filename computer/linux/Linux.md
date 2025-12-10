@@ -1,0 +1,2 @@
+isTopic:: true
+parentTopic:: [[Computer]]
