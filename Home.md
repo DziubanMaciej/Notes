@@ -2,13 +2,22 @@ isTopic:: true
 
 # Homepage
 
-
-## Scratch
-![[Scratch]]
-
-## Celebrations
 ```dataviewjs
-dv.paragraph("![[Celebrations#Incoming celebrations]]");
+// If a page has and embed field, we will embed it here, in our homepage.
+for (let page of dv.pages()) {
+    if (!page.embed) {
+        continue
+    }
+
+    var paragraph = ""
+    if (page.embedParagraph != null) {
+        paragraph = "#" + page.embedParagraph
+    }
+
+    const link_string = `![[${page.file.path}${paragraph}]]`
+    dv.paragraph( `[[${page.file.path}]]`)
+    dv.paragraph(link_string)
+}
 ```
 
 ```dataviewjs
@@ -37,10 +46,13 @@ function validateAnnotations(page) {
         // The topic page must actually be a topic page
         if (!topicPage.isTopic) return "topic page is not annotated as a topic";
 
-        // The topic page must be in the same directory
-        const topicDir = page.parentTopic.path.split("/").slice(0, -1).join("/");
-        const currentDir = page.file.path.split("/").slice(0, -1).join("/");
-        if (topicDir !== currentDir && !isTopic) return "topic page is in different directory";
+        // By default, the topic page must be in the same directory. This can be turned off by a special field
+        // on the topic page.
+        if (!topicPage.allowChildrenPagesInDifferentDirs) {
+            const topicDir = page.parentTopic.path.split("/").slice(0, -1).join("/");
+            const currentDir = page.file.path.split("/").slice(0, -1).join("/");
+            if (topicDir !== currentDir && !isTopic) return "topic page is in different directory";
+        }
     }
 
     // All checks passed
