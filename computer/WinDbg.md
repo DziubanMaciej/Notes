@@ -45,14 +45,14 @@ Some typical debugger commands
 
 Some typical misc commands
 
-| Command    | Example | Meaning of mnemonic | Description |
-|------------|---------|---------------------|-------------|
-| `x`        |`x Notepad!WinMain`</br>`x Notepad!*Main*`|E**x**amine symbols|Look for address of symbol|
-| `k`        |   |   |   |
-| `lm`       |   | **L**ist **m**odules | Lists loaded modules |
-| `lmvm`     |   |   | Display information about a loaded binary |
-| `.hh`      |   | **H**tml **Help** | Shows help window
-| `!analyze` |   | Usually used with `-v` |
+| Command    | Example                                    | Meaning of mnemonic    | Description                               |
+| ---------- | ------------------------------------------ | ---------------------- | ----------------------------------------- |
+| `x`        | `x Notepad!WinMain`</br>`x Notepad!*Main*` | E**x**amine symbols    | Look for address of symbol                |
+| `k`        |                                            |                        |                                           |
+| `lm`       |                                            | **L**ist **m**odules   | Lists loaded modules                      |
+| `lmvm`     |                                            |                        | Display information about a loaded binary |
+| `.hh`      |                                            | **H**tml **Help**      | Shows help window                         |
+| `!analyze` |                                            | Usually used with `-v` |                                           |
 
 
 # Debug techniques
